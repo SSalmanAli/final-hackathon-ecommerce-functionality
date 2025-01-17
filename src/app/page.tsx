@@ -141,7 +141,7 @@ export default function Home() {
   {/* Banner Image */}
   <div className="w-full xl:mt-0 md:w-ful xl:w-[60%] lg:w-[80%] mt-6 md:mt-0 px-6 md:px-0">
     <img 
-      src="/images/image.png" 
+      src="/images/Image.png" 
       alt="banner" 
       className="w-full  h-auto object-contain"
     />
