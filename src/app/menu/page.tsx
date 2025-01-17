@@ -27,9 +27,9 @@ const page = () => {
     <main className=" w-[1510px] h-[5282px]">
 
       {/* Header */}
-      <div className="w-[1510px]  min-h-[90px] flex items-center bg-stone-950 " >
-        <div className="w-[1320px] h-8 absolute top-[29px] left-[300px] flex flex-wrap gap-10 items-center">
-          <div className="w-[109px] h-8 self-stretch text-2xl font-bold leading-none text-amber-500 ">
+      <div className="w-screen min-h-[90px] flex items-center bg-stone-950 " >
+        <div className="w-[1320px]  h-8 absolute top-[29px] left-[100px] flex flex-wrap gap-10 items-center">
+          <div className="w-[109px]  h-8 self-stretch text-2xl font-bold leading-none text-amber-500 ">
 
             <span className="text-white">Food</span>
 
@@ -37,13 +37,13 @@ const page = () => {
           </div>
           <nav className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full" aria-label="Main navigation">
             <Link href="/" className=" hover:underline">Home</Link>
-            <Link href="/menu" className="grow font-bold  hover:underline text-amber-500" aria-current="page">Menu</Link>
+            <Link href="/menu" className="grow font-bold hover:underline text-amber-500">Menu</Link>
             <Link href="/error" className=" hover:underline">Blog</Link>
-            <Link href="/check-out" className=" hover:underline">Checkout</Link>
-            <Link href="/error" className=" hover:underline">About</Link>
+            <Link href="/shop" className="hover:underline">Shop</Link>
+            <Link href="/faq" className=" hover:underline">FAQ</Link>
             <Link href="/error" className=" hover:underline">Contact</Link>
           </nav>
-          <div className="flex gap-4 self-stretch my-auto" aria-label="Social media links">
+          <div className="flex  gap-4 self-stretch my-auto" aria-label="Social media links">
             <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
             <UserRound className=" absolute left-[1256px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
             <PiHandbag className=" absolute left-[1296px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
