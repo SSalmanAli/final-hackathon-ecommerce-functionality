@@ -63,7 +63,7 @@ export default function Home() {
           placeholder="Search..."
         />
         <img 
-          src="/images/Vector.png"  
+          src="/images/vector.png"  
           alt="Search"
           className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5"
         />
