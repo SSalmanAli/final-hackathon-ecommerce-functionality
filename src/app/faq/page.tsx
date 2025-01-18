@@ -25,7 +25,7 @@ const page = () => {
             <Link href="/check-out">Chekcout</Link>
             <Link href="/about">About</Link>
             <Link href="/shop">Shop</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/c&p">C&P</Link>
           </nav>
           <div className="flex gap-4 self-stretch my-auto" aria-label="Social media links">
             <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />

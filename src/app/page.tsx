@@ -11,7 +11,12 @@ import { SheetContent, SheetTrigger, Sheet} from "@/components/ui/sheet";
 
 
 
-export default function Home() {
+
+export default async function Home() {
+  
+
+
+
   return (
 
     <div className="bg-black">
@@ -50,7 +55,7 @@ export default function Home() {
           <Link href="/faq" className="hover:underline">FAQ</Link>
         </li>
         <li>
-          <Link href="" className="hover:underline">Contact</Link>
+          <Link href="/c&p" className="hover:underline">C&P</Link>
         </li>
       </ul>
     </nav>
@@ -436,6 +441,7 @@ export default function Home() {
     </div>
   </div>
 </div>
+
 
 
 

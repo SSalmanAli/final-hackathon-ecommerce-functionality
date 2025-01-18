@@ -104,7 +104,7 @@ const result = Name(url)
             <Link href="/error" className=" hover:underline">Blog</Link>
             <Link href="/shop" className="grow font-bold  hover:underline text-amber-500" aria-current="page">Shop</Link>
             <Link href="/faq" className=" hover:underline">FAQ</Link>
-            <Link href="/error" className=" hover:underline">Contact</Link>
+            <Link href="/c&p" className=" hover:underline">C&P</Link>
           </nav>
           <div className="flex  gap-4 self-stretch my-auto" aria-label="Social media links">
             <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
