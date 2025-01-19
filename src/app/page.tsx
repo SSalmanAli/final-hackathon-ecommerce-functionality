@@ -12,10 +12,7 @@ import { SheetContent, SheetTrigger, Sheet} from "@/components/ui/sheet";
 
 
 
-export default async function Home() {
-  
-
-
+export default function Home() {
 
   return (
 
@@ -135,12 +132,15 @@ export default async function Home() {
     <p className="text-white my-4 text-sm md:text-base">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ea iste dignijhbjh kjbkukh jhj uytg ko.
     </p>
+
+    <Link href="/menu">
     <Button 
       variant="outline" 
       className="border-amber-500 text-white hover:bg-amber-500 hover:text-black transition"
     >
       See Menu
     </Button>
+    </Link>
   </div>
 
   {/* Banner Image */}
@@ -388,26 +388,28 @@ export default async function Home() {
       <div className="flex-1 grid grid-cols-1  sm:grid-cols-2 gap-4">
         {[
           { name: "Lettuce Leaf", price: "12.5$", img: "/images/1.png" },
-          { name: "Fresh Breakfast", price: "14.5$", img: "/images/2.png" },
-          { name: "Mild Butter", price: "12.5$", img: "/images/3.png" },
-          { name: "Fresh Bread", price: "9.5$", img: "/images/4.png" },
-          { name: "Glow Cheese", price: "12.5$", img: "/images/5.png" },
-          { name: "Italian Pizza", price: "14.5$", img: "/images/6.png" },
-          { name: "Slice Beef", price: "11.5$", img: "/images/2.png" },
-          { name: "Mushroom Pizza", price: "19.5$", img: "/images/2.png" },
+          { name: "Fresh Lime", price: "38.0$", img: "/images/2.png" },
+          { name: "NYC Burger", price: "38.0$", img: "/images/3.png" },
+          { name: "Beef Smash", price: "21.0$", img: "/images/4.png" },
+          { name: "Chocolate Muffin", price: "45.0$", img: "/images/5.png" },
+          { name: "Holand Pizza", price: "23.0$", img: "/images/6.png" },
+          { name: "Zilla Mocktail", price: "43.0$", img: "/images/2.png" },
+          { name: "Italiano Crumb", price: "10.0$", img: "/images/2.png" },
         ].map((item, index) => (
-          <div key={index} className="flex  items-start gap-2 sm:gap-4">
+          <Link href="/dynamic/[id]" as={`/dynamic/${index}`} key={index}>
+          <div key={index} className="flex group hover:bg-slate-900 items-start gap-2 sm:gap-4">
             <img
               src={item.img}
               alt={item.name}
               className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded"
             />
             <div>
-              <h1 className="text-white text-sm sm:text-lg font-semibold">{item.name}</h1>
+              <h1 className="text-white text-sm group-hover:text-amber-500 sm:text-lg font-semibold">{item.name}</h1>
               <p className="text-white text-xs sm:text-sm md:hidden lg:block xl:block">Lorem ipsum dolor sit amet.</p>
               <p className="text-amber-500 text-sm sm:text-base">{item.price}</p>
             </div>
           </div>
+        </Link>
         ))}
       </div>
     </div>

@@ -73,9 +73,9 @@ const page = () => {
       {/* Header ends here */}
 
 
+
+
       {/* Starter Menu */}
-
-
       <div className="w-[1320px] h-[628px] absolute top-[531px] left-[100px] flex gap-5 max-md:flex-col">
         <div className="flex flex-col w-[37%] max-md:ml-0 max-md:w-full">
           <Image
@@ -99,7 +99,7 @@ const page = () => {
               className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full"
 
             >
-              <div className="text-zinc-800">Alder Grilled Chinook Salmon</div>
+              <div className="text-zinc-800 hover:text-amber-500">Alder Grilled Chinook Salmon</div>
               <div className="text-amber-500" aria-label="Price">32$</div>
             </div>
             <div className="mt-2 text-neutral-600">
@@ -110,11 +110,14 @@ const page = () => {
               className="shrink-0 self-stretch mt-4 h-px border border-dashed bg-neutral-200 border-neutral-200 max-md:max-w-full"
 
             ></div>
+            
+
+
             <div
               className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none text-amber-500 max-md:max-w-full"
 
             >
-              <div >Berries and creme tart</div>
+              <div className="text-black hover:text-amber-500">Berries and creme tart</div>
               <div aria-label="Price">43$</div>
             </div>
             <div className="mt-2 text-neutral-600">
@@ -129,7 +132,7 @@ const page = () => {
               className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full"
 
             >
-              <div className="text-zinc-800">Tormentoso Bush Pizza Pintoage</div>
+              <div className="text-zinc-800 hover:text-amber-500">Tormentoso Bush Pizza Pintoage</div>
               <div className="text-amber-500" aria-label="Price">14$</div>
             </div>
             <div className="mt-2 text-neutral-600">
@@ -143,7 +146,7 @@ const page = () => {
             <div className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full"
 
             >
-              <div className="text-zinc-800">Spicy Vegan Potato Curry</div>
+              <div className="text-zinc-800 hover:text-amber-500">Spicy Vegan Potato Curry</div>
               <div className="text-amber-500" aria-label="Price">35$</div>
             </div>
             <div className="mt-2 text-neutral-600">
@@ -168,28 +171,28 @@ const page = () => {
             <BsCupHot className="object-contain w-6 aspect-square text-[#ff9f0d]" />
             <h2 className="mt-2 text-5xl font-bold leading-none text-zinc-800 max-md:text-4xl">Main Course</h2>
             <div className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full">
-              <div className="text-zinc-800" >Optic Big Breakfast Combo Menu</div>
+              <div className="text-zinc-800 hover:text-amber-500">Optic Big Breakfast Combo Menu</div>
               <div className="text-amber-500" aria-label="Price: 32 dollars">32$</div>
             </div>
             <div className="mt-2 text-neutral-600">Toasted French bread topped with romano, cheddar</div>
             <div className="mt-2 text-zinc-500" aria-label="560 calories">560 CAL</div>
             <div className="shrink-0 self-stretch mt-4 h-px border border-dashed bg-neutral-200 border-neutral-200 max-md:max-w-full" ></div>
             <div className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full">
-              <div className="text-zinc-800" >Cashew Chicken With Stir-Fry</div>
+              <div className="text-zinc-800 hover:text-amber-500" >Cashew Chicken With Stir-Fry</div>
               <div className="text-amber-500" aria-label="Price: 43 dollars">43$</div>
             </div>
             <div className="mt-2 text-neutral-600">Gorgonzola, ricotta, mozzarella, taleggio</div>
             <div className="mt-2 text-zinc-500" aria-label="700 calories">700 CAL</div>
             <div className="shrink-0 self-stretch mt-4 h-px border border-dashed bg-neutral-200 border-neutral-200 max-md:max-w-full"></div>
             <div className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full">
-              <div className="text-zinc-800" >Vegetables & Green Salad</div>
+              <div className="text-zinc-800 hover:text-amber-500">Vegetables & Green Salad</div>
               <div className="text-amber-500" aria-label="Price: 14 dollars">14$</div>
             </div>
             <div className="mt-2 text-neutral-600">Ground cumin, avocados, peeled and cubed</div>
             <div className="mt-2 text-zinc-500" aria-label="1000 calories">1000 CAL</div>
             <div className="shrink-0 self-stretch mt-4 h-px border border-dashed bg-neutral-200 border-neutral-200 max-md:max-w-full"></div>
             <div className="flex flex-wrap gap-5 justify-between self-stretch mt-6 text-2xl font-bold leading-none max-md:max-w-full">
-              <div className="text-zinc-800" >Spicy Vegan Potato Curry</div>
+              <div className="text-zinc-800 hover:text-amber-500" >Spicy Vegan Potato Curry</div>
               <div className="text-amber-500" aria-label="Price: 35 dollars">35$</div>
             </div>
             <div className="mt-2 text-neutral-600">Spreadable cream cheese, crumbled blue cheese</div>
@@ -309,7 +312,7 @@ const page = () => {
 
             >
               <div className="flex flex-col items-start text-base">
-                <h3 className="text-2xl font-bold leading-none text-zinc-800">
+                <h3 className="text-2xl font-bold hover:text-amber-500 leading-none text-zinc-800">
                   Fig and lemon cake
                 </h3>
                 <p className="self-stretch mt-2 text-neutral-600">
@@ -332,7 +335,7 @@ const page = () => {
               className="flex flex-wrap gap-5 justify-between mt-6 text-2xl font-bold leading-none max-md:max-w-full"
 
             >
-              <h3 className="text-zinc-800">Creamy mascarpone cake</h3>
+              <h3 className="text-zinc-800 hover:text-amber-500">Creamy mascarpone cake</h3>
               <div className="text-amber-500" aria-label="Price">43$</div>
             </div>
             <p className="self-start mt-2 text-base text-neutral-600">
@@ -346,7 +349,7 @@ const page = () => {
               className="flex flex-wrap gap-5 justify-between mt-6 text-2xl font-bold leading-none max-md:max-w-full"
 
             >
-              <h3 className="text-zinc-800">Pastry, blueberries, lemon juice</h3>
+              <h3 className="text-zinc-800 hover:text-amber-500 ">Pastry, blueberries, lemon juice</h3>
               <div className="text-amber-500" aria-label="Price">14$</div>
             </div>
             <p className="self-start mt-2 text-base text-neutral-600">
@@ -363,7 +366,7 @@ const page = () => {
             >
               <div className="flex flex-col">
                 <h3
-                  className="self-start text-2xl font-bold leading-none text-zinc-800"
+                  className="self-start text-2xl hover:text-amber-500 font-bold leading-none text-zinc-800"
                 >
                   Pain au chocolat
                 </h3>
@@ -401,7 +404,7 @@ const page = () => {
         </h2>
         <div className="flex flex-wrap gap-5 justify-between mt-6 max-md:max-w-full" >
           <div className="flex flex-col items-start text-base" >
-            <h3 className="text-2xl font-bold leading-none text-zinc-800" >
+            <h3 className="text-2xl font-bold leading-none hover:text-amber-500 text-zinc-800" >
               Caffè macchiato
             </h3>
             <p className="self-stretch mt-2 text-neutral-600">
@@ -424,7 +427,7 @@ const page = () => {
           className="flex flex-wrap gap-5 justify-between mt-6 text-2xl font-bold leading-none max-md:max-w-full"
           
         >
-          <h3 className="text-zinc-800" >Aperol Spritz Capacianno</h3>
+          <h3 className="text-zinc-800 hover:text-amber-500" >Aperol Spritz Capacianno</h3>
           <div className="text-amber-500" aria-label="Price">43$</div>
         </div>
         <p className="self-start mt-2 text-base text-neutral-600">
@@ -439,7 +442,7 @@ const page = () => {
           className="flex flex-wrap gap-5 justify-between mt-6 text-2xl font-bold leading-none max-md:max-w-full"
           
         >
-          <h3 className="text-zinc-800" >Caffe Latte Campuri</h3>
+          <h3 className="text-zinc-800 hover:text-amber-500" >Caffe Latte Campuri</h3>
           <div className="text-amber-500" aria-label="Price">14$</div>
         </div>
         <p className="self-start mt-2 text-base text-neutral-600">
@@ -454,7 +457,7 @@ const page = () => {
           className="flex flex-wrap gap-5 justify-between mt-6 text-2xl font-bold leading-none max-md:max-w-full"
           
         >
-          <h3 className="text-zinc-800" >Tormentoso BushTea Pintoage</h3>
+          <h3 className="text-zinc-800 hover:text-amber-500" >Tormentoso BushTea Pintoage</h3>
           <div className="text-amber-500" aria-label="Price">35$</div>
         </div>
         <p className="self-start mt-2 text-base text-neutral-600">

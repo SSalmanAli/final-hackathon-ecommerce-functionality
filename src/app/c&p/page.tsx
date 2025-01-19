@@ -52,11 +52,11 @@ async function page () {
           </div>
           <nav className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full" aria-label="Main navigation">
             <Link href="/" className=" hover:underline">Home</Link>
-            <Link href="/menu" className="grow font-bold hover:underline text-amber-500">Menu</Link>
+            <Link href="/menu" className="hover:underline ">Menu</Link>
             <Link href="/error" className=" hover:underline">Blog</Link>
             <Link href="/shop" className="hover:underline">Shop</Link>
             <Link href="/faq" className=" hover:underline">FAQ</Link>
-            <Link href="/c&p" className=" hover:underline">C&P</Link>
+            <Link href="/c&p" className="grow font-bold hover:underline text-amber-500">C&P</Link>
           </nav>
           <div className="flex  gap-4 self-stretch my-auto" aria-label="Social media links">
             <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />

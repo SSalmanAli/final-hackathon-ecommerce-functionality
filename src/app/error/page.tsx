@@ -3,6 +3,8 @@ import { ChevronRight, Link, Search, UserRound } from 'lucide-react'
 import { PiHandbag } from 'react-icons/pi'
 import bgPic from '/public/images/menutop.png'
 import Footer from "../../../components/Footer"
+import Link2 from 'next/link'
+
 
 const page = () => {
     return (
@@ -11,10 +13,10 @@ const page = () => {
             <div className="w-[1510px] min-h-[90px] flex items-center bg-stone-950 " >
                 <div className="w-[1320px] h-8 absolute top-[29px] left-[300px] flex flex-wrap gap-10 items-center">
                     <div className="w-[109px] h-8 self-stretch text-2xl font-bold leading-none text-amber-500 ">
-
+                        <Link2 href="/">
                         <span className="text-white">Food</span>
-
                         <span className="text-amber-500">tuck</span>
+                        </Link2>
                     </div>
                     <nav className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full" aria-label="Main navigation">
                         <Link href="/" className="grow font-bold text-amber-500" aria-current="page">Home</Link>
