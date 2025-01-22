@@ -1,9 +1,8 @@
 "use client"
-import { Input } from "@/components/ui/input"
 import Link from "next/link"
-import { ChevronRight, Search, UserRound } from "lucide-react"
+import { ChevronRight} from "lucide-react"
 import Image from "next/image"
-import { PiHandbag } from "react-icons/pi"
+import { Input } from "@/components/ui/input"
 import bgPic from '/public/images/menutop.png'
 import {
   Select,
@@ -14,42 +13,15 @@ import {
 } from "@/components/ui/select"
 import Footer from "../../../components/Footer"
 import { useState } from "react";
+import { products } from "../utils/mock"
+import Header from "../../../components/Header"
 
 
-
-const data = [
-  { name: "Fresh Lime", price: 38.00, dPrice: 45.00, itemNo: "1", image: "/images/a.png" },
-  { name: "NYC Burger", price: 38.00, itemNo: "2", image: "/images/b.png" },
-  { name: "Beef Smash", price: 21.00, dPrice: 36.00, itemNo: "3", image: "/images/c.png" },
-  { name: "Chocolate Muffin", price: 45.00, itemNo: "4", image: "/images/d.png" },
-  { name: "Holand Pizza", price: 23.00, itemNo: "5", image: "/images/e.png" },
-  { name: "Zilla Mocktail", price: 43.00, dPrice: 50.00, itemNo: "6", image: "/images/f.png" },
-  { name: "Italiano Crumb", price: 10.00, dPrice: 15.00, itemNo: "7", image: "/images/g.png" },
-  { name: "Mexican Blast", price: 25.00, itemNo: "8", image: "/images/h.png" },
-  { name: "Swiss Cheese Tower", price: 12.00, itemNo: "9", image: "/images/i.png" },
-  { name: "Mac N Cheese", price: 10.00, itemNo: "10", image: "/images/j.png" },
-  { name: "Kang Punch", price: 29.00, dPrice: 45.00, itemNo: "11", image: "/images/k.png" },
-  { name: "Chupucini di taro", price: 12.00, itemNo: "12", image: "/images/l.png" },
-  { name: "Coral Steak", price: 70.00, dPrice: 99.00, itemNo: "13", image: "/images/m.png" },
-  { name: "Vinchi Pichini", price: 89.00, itemNo: "14", image: "/images/n.png" },
-  { name: "Cramel Gold", price: 19.00, dPrice: 25.00, itemNo: "15", image: "/images/o.png" },
-];
-
-
-
-
-
-
-
-
-
-
-export default function shop () {
-  const [showSearch, setShowSearch] = useState(false);
+export default function Shop () {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredProducts = data.filter(product =>
+  const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -58,82 +30,7 @@ export default function shop () {
     return(
         <div className=" bg-white w-screen h-fit">
 
-{/* header */}
-<div className="w-screen min-h-[90px] flex items-center bg-stone-950">
-      <div className="w-[1320px] h-8 absolute top-[29px] left-[100px] flex flex-wrap gap-10 items-center">
-        {/* Logo */}
-        <div className="w-[109px] h-8 self-stretch text-2xl font-bold leading-none text-amber-500">
-          <span className="text-white">Food</span>
-          <span className="text-amber-500">tuck</span>
-        </div>
-
-        {/* Navigation */}
-        <nav
-          className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full"
-          aria-label="Main navigation"
-        >
-          <Link href="/" className="hover:underline">
-            Home
-          </Link>
-          <Link href="/menu" className="hover:underline">
-            Menu
-          </Link>
-          <Link href="/error" className="hover:underline">
-            Blog
-          </Link>
-          <Link
-            href="/shop"
-            className="grow font-bold hover:underline text-amber-500"
-            aria-current="page"
-          >
-            Shop
-          </Link>
-          <Link href="/faq" className="hover:underline">
-            FAQ
-          </Link>
-          <Link href="/c&p" className="hover:underline">
-            C&P
-          </Link>
-        </nav>
-
-        {/* Social Media Links */}
-        <div
-          className="flex gap-4 self-stretch my-auto"
-          aria-label="Social media links"
-        >
-          {!showSearch && (
-            <Search
-              onClick={() => setShowSearch(true)}
-              className="cursor-pointer absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]"
-            />
-          )}
-          {showSearch && (
-            <div className="absolute left-[1150px] top-1 flex items-center gap-2">
-              <Input
-                className="text-white bg-black border-2 border-amber-500 rounded-full py-1 pl-3 pr-8"
-                placeholder="Search..."
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button
-                onClick={() => setShowSearch(false)}
-                className="text-gray-400 hover:text-gray-700"
-              >
-                Close
-              </button>
-            </div>
-          )}
-          {!showSearch && (
-            <>
-              <UserRound className="absolute left-[1256px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-              <PiHandbag className="absolute left-[1296px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-
+<Header />
 
       <div className="w-screen  h-[310px]">
         <Image
@@ -204,7 +101,7 @@ export default function shop () {
     <div className=" h-[1800px] w-full grid grid-cols-3 gap-4 ">
 
     {filteredProducts.map(product => (
-<Link href={`/dynamic/${product.itemNo}`} key={product.itemNo}>
+<Link href={`/dynamic/${product.id}`} key={product.id}>
   <div className="w-[312px] h-[330px] cursor-pointer hover:bg-slate-100">
     <img src={product.image} alt="food" />
     <h1 className="font-semibold ">{product.name}</h1>

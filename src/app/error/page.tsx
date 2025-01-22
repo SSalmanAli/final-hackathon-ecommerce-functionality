@@ -1,39 +1,14 @@
 import Image from 'next/image'
-import { ChevronRight, Link, Search, UserRound } from 'lucide-react'
-import { PiHandbag } from 'react-icons/pi'
+import { ChevronRight, Link} from 'lucide-react'
 import bgPic from '/public/images/menutop.png'
 import Footer from "../../../components/Footer"
-import Link2 from 'next/link'
+import Header from "../../../components/Header"
 
 
 const page = () => {
     return (
         <main className='w-[1510px] h-[2126px]' >
-            {/* Header */}
-            <div className="w-[1510px] min-h-[90px] flex items-center bg-stone-950 " >
-                <div className="w-[1320px] h-8 absolute top-[29px] left-[300px] flex flex-wrap gap-10 items-center">
-                    <div className="w-[109px] h-8 self-stretch text-2xl font-bold leading-none text-amber-500 ">
-                        <Link2 href="/">
-                        <span className="text-white">Food</span>
-                        <span className="text-amber-500">tuck</span>
-                        </Link2>
-                    </div>
-                    <nav className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full" aria-label="Main navigation">
-                        <Link href="/" className="grow font-bold text-amber-500" aria-current="page">Home</Link>
-                        <Link href="/menu">Menu</Link>
-                        <Link href="/blog">Blog</Link>
-                        <Link href="/check-out">Chekcout</Link>
-                        <Link href="/about">About</Link>
-                        <Link href="/shop">Shop</Link>
-                        <Link href="/contact">Contact</Link>
-                    </nav>
-                    <div className="flex gap-4 self-stretch my-auto" aria-label="Social media links">
-                        <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-                        <UserRound className=" absolute left-[1256px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-                        <PiHandbag className=" absolute left-[1296px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-                    </div>
-                </div>
-            </div>
+            <Header />
 
             <div className="w-[1510px] h-[410px]">
                 <Image

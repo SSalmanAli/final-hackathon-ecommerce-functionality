@@ -1,40 +1,16 @@
 import Image from 'next/image'
 import { FaMinus, FaPlus } from 'react-icons/fa'
-import { ChevronRight, Search, UserRound } from 'lucide-react'
-import { PiHandbag } from 'react-icons/pi'
+import { ChevronRight} from 'lucide-react'
 import bgPic from '/public/images/menutop.png'
 import Footer from '../../../components/Footer'
 import Link from 'next/link'
+import Header from '../../../components/Header'
 
 const page = () => {
   return (
     <main className='w-[1510px] h-[2126px]' >
 
-      {/* Header */}
-      <div className="w-screen min-h-[90px] flex items-center bg-stone-950 " >
-        <div className="w-[1320px]  h-8 absolute top-[29px] left-[100px] flex flex-wrap gap-10 items-center">
-          
-          <div className="w-[109px]  h-8 self-stretch text-2xl font-bold leading-none text-amber-500 ">
-            <span className="text-white"><Link href="/">Food</Link></span>
-            <span className="text-amber-500"><Link href="/">tuck</Link></span>
-          </div>
-          
-          <nav className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full" aria-label="Main navigation">
-            <Link href="/" className=" hover:underline">Home</Link>
-            <Link href="/menu" className=" hover:underline">Menu</Link>
-            <Link href="/error" className=" hover:underline">Blog</Link>
-            <Link href="/shop" className="grow font-bold  hover:underline text-amber-500" aria-current="page">Shop</Link>
-            <Link href="/faq" className=" hover:underline">FAQ</Link>
-            <Link href="/c&p" className=" hover:underline">C&P</Link>
-          </nav>
-          <div className="flex  gap-4 self-stretch my-auto" aria-label="Social media links">
-            <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-            <UserRound className=" absolute left-[1256px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-            <PiHandbag className=" absolute left-[1296px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-          </div>
-        </div>
-      </div>
-
+      <Header />
 
       {/* Banner */}
       <div className="w-[1510px] h-[410px]">

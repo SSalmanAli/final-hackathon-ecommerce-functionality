@@ -1,118 +1,41 @@
+"use client"
 import Link from "next/link"
-import {  Search, UserRound } from "lucide-react"
 import Image from "next/image"
-import { PiHandbag } from "react-icons/pi"
 import bgPic from '/public/images/menutop.png'
 import { Button } from '@/components/ui/button'
 import Footer from "../../../../components/Footer"
+import { useState } from "react"
+import { products } from "@/app/utils/mock"
+import Header from "../../../../components/Header"
+import { useAppDispatch } from "@/app/store/hooks"
+import { addToCart } from "@/app/store/features/cart"
 
-export default function item ({params}: {params: {items: string}}) {
+export default function Item ({params}: {params: {items: string}}) {
 
-const data = [
+const slug = products.filter((val) => val.id === params.items)
+
+const dispatch = useAppDispatch()
+
+const [cartItem , setCartItem] = useState(
   {
-    name: "Fresh Lime" ,
-    price: 38.00 ,
-    itemNo: "1"
-  },
-  {
-    name: "NYC Burger" ,
-    price: 38.00 ,
-    itemNo: "2"
-  },  {
-    name: "Beef Smash" ,
-    price: 21.00 ,
-    itemNo: "3"
-  },  {
-    name: "Chocolate Muffin" ,
-    price: 45.00 ,
-    itemNo: "4"
-  },  {
-    name: "Holand Pizza" ,
-    price: 23.00 ,
-    itemNo: "5"
-  },  {
-    name: "Zilla Mocktail" ,
-    price: 43.00 ,
-    itemNo: "6"
-  },  {
-    name: "Italiano Crumb" ,
-    price: 10.00 ,
-    itemNo: "7"
-  },  {
-    name: "Mexican Blast" ,
-    price: 25.00 ,
-    itemNo: "8"
-  },  {
-    name: "Swiss Cheese Tower" ,
-    price: 12.00 ,
-    itemNo: "9"
-  },  {
-    name: "Mac N Cheese" ,
-    price: 10.00 ,
-    itemNo: "10"
-  },  {
-    name: "Kang Punch" ,
-    price: 29.00 ,
-    itemNo: "11"
-  },  {
-    name: "Chupucini di taro" ,
-    price: 12.00 ,
-    itemNo: "12"
-  },  {
-    name: "Coral Steak" ,
-    price: 70.00 ,
-    itemNo: "13"
-  },  {
-    name: "Vinchi Pichini" ,
-    price: 89.00 ,
-    itemNo: "14"
-  },  {
-    name: "Cramel Gold" ,
-    price: 19.00 ,
-    itemNo: "15"
-  },
-]
+    id: slug[0].id,
+    name: slug[0].name,
+    price: slug[0].price,
+    image: slug[0].image,
+    dPrice: slug[0].dPrice,
+    qty: slug[0].qty
+  }
+)
 
-const url = params.items
-
-
-function Name (callback : string) {
-return data.find((y)=> y.itemNo === callback)
-}
-
-const result = Name(url) 
 
 
     return(
     <div>
-      {
-        result ? (
+      
           <div>
                     <div className=" bg-white w-screen h-fit">
-      {/* Header */}
-      <div className="w-screen min-h-[90px] flex items-center bg-stone-950 " >
-        <div className="w-[1320px]  h-8 absolute top-[29px] left-[100px] flex flex-wrap gap-10 items-center">
-          <div className="w-[109px]  h-8 self-stretch text-2xl font-bold leading-none text-amber-500 ">
-
-            <span className="text-white">Food</span>
-
-            <span className="text-amber-500">tuck</span>
-          </div>
-          <nav className="max-w-[508px] h-6 flex flex-wrap absolute top-2 left-[451px] gap-8 self-stretch text-base text-white max-md:max-w-full" aria-label="Main navigation">
-            <Link href="/" className=" hover:underline">Home</Link>
-            <Link href="/menu" className=" hover:underline">Menu</Link>
-            <Link href="/error" className=" hover:underline">Blog</Link>
-            <Link href="/shop" className="grow font-bold  hover:underline text-amber-500" aria-current="page">Shop</Link>
-            <Link href="/faq" className=" hover:underline">FAQ</Link>
-            <Link href="/c&p" className=" hover:underline">C&P</Link>
-          </nav>
-          <div className="flex  gap-4 self-stretch my-auto" aria-label="Social media links">
-            <Search className=" absolute left-[1216px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-            <UserRound className=" absolute left-[1256px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-            <PiHandbag className=" absolute left-[1296px] top-2 shrink-0 w-6 h-6 aspect-square text-[#ffffff]" />
-          </div>
-        </div>
-      </div>
+      
+          <Header />
 
       <div className="w-screen  h-[310px]">
         <Image
@@ -145,7 +68,9 @@ const result = Name(url)
                 <img src="/images/yeaaa.png" className="mt-5" alt="item4" />
                 <img src="/images/yeaaaa.png" className="mt-5" alt="item5" />
             </div>
-            <div className=" w-[491px] h-full"><img src="/images/bigone.png" alt="item" /></div>
+            <div className=" w-[491px] h-full relative overflow-hidden">
+              <Image src={cartItem.image} alt="item" layout="fill" objectFit="cover" quality={100} />
+              </div>
 
         </div>
         </div>
@@ -154,21 +79,31 @@ const result = Name(url)
         
         <div className="w-full h-[40%] border-b mt-14">
         <Button variant="outline" className="w-[86px] rounded-[10px] h-[28px]">In stock</Button>
-        <h1 className="text-5xl mt-7 font-bold">{result.name}</h1>
+        <h1 className="text-5xl mt-7 font-bold">{cartItem.name}</h1>
         <p className="text-slate-400 mt-10 mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque consectetur aliquam assumenda eligendi modi. Dolores provident dicta impedit placeat possimus at sapiente nam magnam excepturi. Cumque maxime, tempore ut fugit nobis vero distinctio accusamus tenetur cupiditate similique eum aut sed modi corrupti ex, qui ipsam! Soluta culpa consectetur, tempore obcaecati esse eaque eos. Aliquid modi voluptates minima sed explicabo voluptate.</p>
         <br />
         </div>
         
 
         <div className="w-full h-[30%] border-b">
-        <h1 className="text-4xl mt-7 font-bold">${result.price}.00</h1>
+        <h1 className="text-4xl mt-7 font-bold">${cartItem.price * cartItem.qty}.00</h1>
         <br />
         <div className="w-[333px] h-[24px]">
             <img src="/images/rating.png" alt="rating" />
         </div>
         <p className="text-slate-400 mt-4 ">Dictum/Cursur</p>
         <br />
-        <Button variant="outline" className="w-[191px] h-[50px]">Add To Cart</Button>
+
+        <div className="flex gap-8">
+
+        <Button onClick={() => dispatch(addToCart(cartItem))} variant="outline" className="w-[191px] h-[50px]">Add To Cart</Button>
+
+        <div className="flex justify-center bg-slate-300 items-center gap-2 border border-gray-200 w-[100px] h-[30px] text-[16px] font-medium text-center rounded-2xl mt-8 md:mt-3">
+        <button onClick={() => setCartItem({ ...cartItem, qty: cartItem.qty <=1? 1 : - 1 })} className="px-2 py-1 rounded">-</button>
+        <span className="text-lg font-medium">{cartItem.qty}</span>
+        <button onClick={() => setCartItem({ ...cartItem, qty: cartItem.qty + 1 })} className="px-2 py-1 rounded">+</button>
+      </div>
+        </div>
         </div>
 
 
@@ -214,10 +149,6 @@ const result = Name(url)
 </div>
         </div>
           </div>
-        ) : (
-          <h1>Page not Found</h1>
-        )
-      }
     </div>
   )
 }

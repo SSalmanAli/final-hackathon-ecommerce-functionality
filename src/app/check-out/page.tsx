@@ -4,11 +4,10 @@ import { FaArrowRight } from 'react-icons/fa'
 import { ChevronLeft, ChevronRight, Link, Search, UserRound } from 'lucide-react'
 import { PiHandbag } from 'react-icons/pi'
 import bgPic from '/public/images/menutop.png'
-import Footer from '../../../components/Footer'
 
 const page = () => {
   return (
-    <main className='w-[1510px] h-[2147px]' >
+    <main className='w-fit h-fit' >
       {/* Header */}
       <div className="w-[1510px] min-h-[90px] flex items-center bg-stone-950 " >
         <div className="w-[1320px] h-8 absolute top-[29px] left-[300px] flex flex-wrap gap-10 items-center">
@@ -208,10 +207,6 @@ const page = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="footer absolute top-[1373px] w-full">
-        <Footer />
-      </div>
 
     </main>
   )
