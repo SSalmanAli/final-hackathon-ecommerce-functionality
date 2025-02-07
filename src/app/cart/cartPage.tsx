@@ -8,12 +8,14 @@ import bgPic from '/public/images/menutop.png'
 import { ChevronRight, Search, UserRound } from "lucide-react"
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addCart, delItem, subtractCart } from '../store/features/cart';
+import {addToCheckout} from '../store/features/checkout'
 
 const CartPage = () => {
     const cartArray = useAppSelector((state: { cart: { price: number, dPrice: number, qty: number, image: string, id: number ,  name: string, uuid: string | number }[] }) => state.cart)
     const total = cartArray.reduce((total , arr) => {return (total+((arr.price-(arr.price*arr.dPrice)/100))*arr.qty)},0)
     const dispatch = useAppDispatch()
     const grandTotal = total + 3.99
+    const checkout = useAppSelector((state) => state.cart)
     return(
         <div>
             
@@ -153,12 +155,12 @@ const CartPage = () => {
       </div>
       <div className="flex justify-between font-bold text-[15.5px]">
         <span>Total Amount</span>
-        <span>${grandTotal}</span>
+        <span>${grandTotal.toFixed(2)}</span>
       </div>
     </div>
 
 <Link href="/check-out">
-    <button className="mt-4 w-full flex justify-center bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600">
+    <button onClick={() => dispatch(addToCheckout(checkout) , total , grandTotal)} className="mt-4 w-full flex justify-center bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600">
         Proceed to Checkout
     </button>
       </Link>

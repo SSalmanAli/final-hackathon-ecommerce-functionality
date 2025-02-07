@@ -1,11 +1,16 @@
-import Image from 'next/image'
-import tikka from '/public/images/tikka.png'
+"use client"
+
+import Link2 from 'next/link';
+import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa'
-import { ChevronLeft, ChevronRight, Link, Search, UserRound } from 'lucide-react'
+import { ChevronLeft, Link , ChevronRight, Search, UserRound } from 'lucide-react'
 import { PiHandbag } from 'react-icons/pi'
 import bgPic from '/public/images/menutop.png'
-
-const page = () => {
+import {useAppSelector} from '../store/hooks'
+const Page = () => {
+  const checkout = useAppSelector((state) => state.cart)
+  const total = checkout.reduce((total , arr) => {return (total+((arr.price-(arr.price*arr.dPrice)/100))*arr.qty)},0)
+  const grandTotal = total + 3.99
   return (
     <main className='w-fit h-fit' >
       {/* Header */}
@@ -125,6 +130,7 @@ const page = () => {
                 <label >Same as shipping address</label>
               </div>
               <div className="flex flex-wrap gap-6 mt-6">
+                <Link2 href="/cart">
                 <button type="button" className="flex flex-col flex-1 grow shrink-0 basis-0 text-neutral-600 w-fit max-md:max-w-full">
                   <div className="flex flex-col justify-center items-center px-16 py-4 w-full border border-solid border-neutral-200 max-md:px-5 max-md:max-w-full">
                     <div className="flex gap-2 max-w-full w-[117px]">
@@ -133,6 +139,7 @@ const page = () => {
                     </div>
                   </div>
                 </button>
+                </Link2>
                 <button type="submit" className="flex flex-col flex-1 grow shrink-0 text-white bg-amber-500 basis-0 w-fit max-md:max-w-full">
                   <div className="flex flex-col justify-center items-center px-16 py-4 w-full bg-amber-500 max-md:px-5 max-md:max-w-full">
                     <div className="flex gap-2 max-w-full w-[174px]">
@@ -145,58 +152,47 @@ const page = () => {
             </form>
           </div>
 
-          <div className="flex flex-col ml-5 w-[424px] h-[700px] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col items-start p-6 mx-auto w-full text-sm border border-solid border-neutral-200 max-md:px-5 max-md:mt-6 max-md:max-w-full">
-              <div className="flex gap-4 text-neutral-600">
+          <div className="flex flex-col ml-5 w-[424px] h-[700px] max-md:ml-0  max-md:w-full">
+            <div className="flex flex-col  items-start p-6 mx-auto w-full text-sm border border-solid border-neutral-200 max-md:px-5 max-md:mt-6 max-md:max-w-full">
+              
+              {checkout.map((item , i) => (
+              <div key={i}>
+              <div className="flex gap-4  text-neutral-600">
                 <Image
-                  src={tikka}
-                  alt="Chicken Tikka Kabab" className="object-contain shrink-0 aspect-[0.94] w-[83px]" />
+                width = {83}
+                height = {100}
+                  src={item.image}
+                  alt="Chicken Tikka Kabab" className="object-contain shrink-0 aspect-[0.94] " />
                 <div className="flex flex-col items-start self-start">
-                  <div className="self-stretch text-base font-bold text-zinc-800">Chicken Tikka Kabab</div>
+                  <div className="self-stretch text-base font-bold text-zinc-800">{item.name}</div>
                   <div className="mt-2 leading-loose">150 gm net</div>
-                  <div className="mt-1 leading-loose">50$</div>
+                  <div className="flex gap-4">
+                    <h1 className='mt-1 leading-loose'>qty = {item.qty}</h1>
+                  <div className="mt-1 leading-loose">{item.price}$</div>
+                  </div>
                 </div>
               </div>
               <hr className="w-full mt-4 border-t border-neutral-200" />
-              <div className="flex gap-4 mt-4 text-neutral-600">
-                <Image
-                  src={tikka}
-                  alt="Chicken Tikka Kabab" className="object-contain shrink-0 aspect-[0.94] w-[83px]" />
-                <div className="flex flex-col items-start self-start">
-                  <div className="self-stretch text-base font-bold text-zinc-800">Chicken Tikka Kabab</div>
-                  <div className="mt-2 leading-loose">150 gm net</div>
-                  <div className="mt-1 leading-loose">50$</div>
-                </div>
               </div>
-              <hr className="w-full mt-4 border-t border-neutral-200" />
-              <div className="flex gap-4 mt-4 text-neutral-600">
-                <Image
-                  src={tikka}
-                  alt="Chicken Tikka Kabab"
-                  className="object-contain shrink-0 aspect-[0.94] w-[83px]" />
-                <div className="flex flex-col items-start self-start">
-                  <div className="self-stretch text-base font-bold text-zinc-800">Chicken Tikka Kabab</div>
-                  <div className="mt-2 leading-loose">150 gm net</div>
-                  <div className="mt-1 leading-loose">50$</div>
-                </div>
-              </div>
-              <hr className="w-full mt-4 border-t border-neutral-200" />
+              ))}
+
+
               <div className="flex gap-10 self-stretch mt-6 text-base whitespace-nowrap">
                 <dl className="flex flex-col flex-1 text-neutral-600">
                   <dt>Sub-total</dt>
-                  <dd className="mt-4 max-md:mr-0.5">130$</dd>
+                  <dd className="mt-4 max-md:mr-0.5">{total}</dd>
                   <dt className="mt-4">Shipping</dt>
-                  <dd className="mt-4">Free</dd>
+                  <dd className="mt-4">3.99$</dd>
                   <dt className="mt-4">Discount</dt>
                   <dd className="mt-4">25%</dd>
                   <dt className="mt-4">Tax</dt>
-                  <dd className="mt-4">54.76$</dd>
+                  <dd className="mt-4">0.87$</dd>
                 </dl>
               </div>
               <hr className="w-full mt-4 border-t border-neutral-200" />
               <div className="flex gap-5 justify-between self-stretch mt-4 text-lg leading-none whitespace-nowrap text-zinc-800">
                 <div>Total</div>
-                <div className="font-bold">432.65$</div>
+                <div className="font-bold">{grandTotal}$</div>
               </div>
               <button type="button" className="flex gap-2.5 justify-center items-center self-stretch px-12 py-4 mt-6 text-lg leading-none text-white bg-amber-500 rounded-md max-md:px-5">
                 <span className="self-stretch my-auto">Place an order</span>
@@ -204,6 +200,8 @@ const page = () => {
               </button>
             </div>
           </div>
+
+
         </div>
       </div>
 
@@ -212,4 +210,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
