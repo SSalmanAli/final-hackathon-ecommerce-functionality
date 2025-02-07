@@ -89,7 +89,7 @@ const [cartItem , setCartItem] = useState(
         <h1 className="text-4xl mt-7 font-bold">${cartItem.price * cartItem.qty}.00</h1>
         <br />
         <div className="w-[333px] h-[24px]">
-            <img src="/images/rating.png" alt="rating" />
+            <img src="/images/Rating.png" alt="rating" />
         </div>
         <p className="text-slate-400 mt-4 ">Dictum/Cursur</p>
         <br />
