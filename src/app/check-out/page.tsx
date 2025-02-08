@@ -180,7 +180,7 @@ const Page = () => {
               <div className="flex gap-10 self-stretch mt-6 text-base whitespace-nowrap">
                 <dl className="flex flex-col flex-1 text-neutral-600">
                   <dt>Sub-total</dt>
-                  <dd className="mt-4 max-md:mr-0.5">{total}</dd>
+                  <dd className="mt-4 max-md:mr-0.5">{total.toFixed(2)}</dd>
                   <dt className="mt-4">Shipping</dt>
                   <dd className="mt-4">3.99$</dd>
                   <dt className="mt-4">Discount</dt>
@@ -192,7 +192,7 @@ const Page = () => {
               <hr className="w-full mt-4 border-t border-neutral-200" />
               <div className="flex gap-5 justify-between self-stretch mt-4 text-lg leading-none whitespace-nowrap text-zinc-800">
                 <div>Total</div>
-                <div className="font-bold">{grandTotal}$</div>
+                <div className="font-bold">{grandTotal.toFixed(2)}$</div>
               </div>
               <button type="button" className="flex gap-2.5 justify-center items-center self-stretch px-12 py-4 mt-6 text-lg leading-none text-white bg-amber-500 rounded-md max-md:px-5">
                 <span className="self-stretch my-auto">Place an order</span>

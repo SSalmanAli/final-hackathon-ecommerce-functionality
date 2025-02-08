@@ -7,14 +7,12 @@ import Footer from "../../../../components/Footer"
 import { useState } from "react"
 import { products } from "@/app/utils/mock"
 import Header from "../../../../components/Header"
-import { useAppDispatch } from "@/app/store/hooks"
-import { addToCart } from "@/app/store/features/cart"
+import AddToCart from "../../../../components/AddToCart"
 
 export default function Item ({params}: {params: {items: string}}) {
 
 const slug = products.filter((val) => val.id === params.items)
 
-const dispatch = useAppDispatch()
 
 const [cartItem , setCartItem] = useState(
   {
@@ -96,7 +94,8 @@ const [cartItem , setCartItem] = useState(
 
         <div className="flex gap-8">
 
-        <Button onClick={() => dispatch(addToCart(cartItem))} variant="outline" className="w-[191px] h-[50px]">Add To Cart</Button>
+        {/* <Button onClick={() => dispatch(addToCart(cartItem))} variant="outline" className="w-[191px] h-[50px]">Add To Cart</Button> */}
+        <AddToCart cartItem={cartItem} />
 
         <div className="flex justify-center bg-slate-300 items-center gap-2 border border-gray-200 w-[100px] h-[30px] text-[16px] font-medium text-center rounded-2xl mt-8 md:mt-3">
         <button onClick={() => setCartItem({ ...cartItem, qty: cartItem.qty <=1? 1 : - 1 })} className="px-2 py-1 rounded">-</button>
