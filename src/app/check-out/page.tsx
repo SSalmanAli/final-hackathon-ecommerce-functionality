@@ -179,13 +179,13 @@ const Page = () => {
 
               <div className="flex gap-10 self-stretch mt-6 text-base whitespace-nowrap">
                 <dl className="flex flex-col flex-1 text-neutral-600">
-                  <dt>Sub-total</dt>
+                  <dt className="font-bold">Sub-total</dt>
                   <dd className="mt-4 max-md:mr-0.5">{total.toFixed(2)}</dd>
-                  <dt className="mt-4">Shipping</dt>
+                  <dt className="mt-4 font-bold">Shipping</dt>
                   <dd className="mt-4">3.99$</dd>
-                  <dt className="mt-4">Discount</dt>
+                  <dt className="mt-4 font-bold">Discount</dt>
                   <dd className="mt-4">25%</dd>
-                  <dt className="mt-4">Tax</dt>
+                  <dt className="mt-4 font-bold">Tax</dt>
                   <dd className="mt-4">0.87$</dd>
                 </dl>
               </div>
